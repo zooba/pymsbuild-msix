@@ -1,0 +1,3 @@
+[pymsbuild.commands]
+msix=pymsbuild_msix:build
+pack-msix=pymsbuild_msix:pack
