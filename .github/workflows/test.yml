@@ -28,6 +28,8 @@ jobs:
       run: pip install ${{ matrix.install }} -r tests/requirements.txt
     - name: Test with pytest
       run: pytest
+      env:
+        PYMSBUILD_EXTENSION_COMMAND: 'msix=pymsbuild_msix:build'
     - name: Check self build (sdist)
       run: python -m pymsbuild sdist
     - name: Check self build (wheel)
