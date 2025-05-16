@@ -8,7 +8,7 @@ METADATA = {
     "Author": "Steve Dower",
     "Author-email": "steve.dower@python.org",
     "Project-url": [
-        "Homepage": "https://github.com/zooba/pymsbuild-msix",
+        "Homepage, https://github.com/zooba/pymsbuild-msix",
         "Report bug, https://github.com/zooba/pymsbuild-msix/issues",
     ],
     "Summary": "A pymsbuild extension for producing MSIX packages.",
@@ -37,9 +37,11 @@ METADATA = {
 
 
 PACKAGE = Package(
-    "pymsbuild_msix",
-    PyFile("pymsbuild_msix/*.py"),
-    #File("pymsbuild_msix/targets/*", name="targets/*"),
+    "",
+    Package("pymsbuild_msix",
+        PyFile("pymsbuild_msix/*.py"),
+        #File("pymsbuild_msix/targets/*", name="targets/*"),
+    ),
     File("entry_points.txt", IncludeInDistinfo=True),
 )
 
@@ -67,4 +69,4 @@ def init_PACKAGE(tag=None):
     # GENERATE _version MODULE
     ver_py = tmpdir / "_version.py"
     update_file(ver_py, f"__version__ = {METADATA['Version']!r}")
-    PACKAGE.members.append(PyFile(ver_py))
+    PACKAGE.find("pymsbuild_msix").members.append(PyFile(ver_py))
