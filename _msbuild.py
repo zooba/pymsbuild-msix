@@ -31,6 +31,7 @@ METADATA = {
     ],
     "Requires-Dist": [
         "pymsbuild>=1.2.2a1",
+        "entrypoints",
     ],
     "WheelTag": "py3-none-any",
 }
